@@ -1,4 +1,4 @@
-package com.example.CTGTDL;
+package com.example.CTGTDL.array;
 
 import com.example.CTGTDL.dependencyInjection.BubbleSortAlgorithm;
 import com.example.CTGTDL.dependencyInjection.SortAlg;
