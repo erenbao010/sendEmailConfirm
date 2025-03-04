@@ -20,13 +20,13 @@ public class TestDrive {
  class A {
     int num = 7;
     void m1() {
-        System.out.println("A m1");
+        System.out.println("Vehicle m1");
     }
     void m2() {
-        System.out.println("A m2");
+        System.out.println("Vehicle m2");
     }
     void m3() {
-        System.out.println("A m3");
+        System.out.println("Vehicle m3");
     }
 }
 class B extends A {
@@ -38,7 +38,7 @@ class B extends A {
 class C extends B{
     @Override
     void m3() {
-        System.out.println("C m3");
+        System.out.println("Audi m3");
     }
 }
 class D extends C {

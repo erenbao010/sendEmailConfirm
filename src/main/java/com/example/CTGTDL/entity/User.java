@@ -1,21 +1,29 @@
 package com.example.CTGTDL.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
+@Table (name = "user")
 public class User {
     @Id
-    @Generated
-    private int id;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private long id;
     private String name;
     private int age;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public User(int id, String name, int age) {
         this.id = id;
@@ -23,11 +31,11 @@ public class User {
         this.age = age;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

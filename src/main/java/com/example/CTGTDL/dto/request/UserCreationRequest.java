@@ -1,25 +1,17 @@
-package com.example.CTGTDL.dependencyInjection;
+package com.example.CTGTDL.dto.request;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
-
-@Entity
-@NoArgsConstructor
-@Data
-public class User {
-    @Id
-    @Generated
+public class UserCreationRequest {
     private int id;
     private String name;
     private int age;
+    private String password;
 
-    public User(int id, String name, int age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getId() {
