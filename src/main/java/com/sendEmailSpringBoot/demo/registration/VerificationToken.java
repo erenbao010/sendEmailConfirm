@@ -2,6 +2,7 @@ package com.sendEmailSpringBoot.demo.registration;
 
 import com.sendEmailSpringBoot.demo.appUser.AppUser;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
+@Data
+@Table (name = "verification_token")
 public class VerificationToken {
 
     @SequenceGenerator(
