@@ -7,6 +7,8 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -27,6 +29,18 @@ public class UserService {
 
     public User getUser(long userId) {
         return userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+    public List<User> getAllUser () {
+        return userRepository.findAll();
+    }
+    public Long getSize () {
+        Long count = userRepository.count();
+        if (count==0) {
+            throw new RuntimeException ("User not found");
+        }
+
+        System.out.println(count+"Usserr");
+        return count;
     }
 
     public User updateUser(long id,@NotNull  User user) {

@@ -12,6 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
@@ -32,6 +35,15 @@ public class UserController {
         return userService.getUser(userId);
     }
 
+    @GetMapping
+    List<User> getAllUser() {
+        return userService.getAllUser();
+    }
+
+    @GetMapping("/size")
+    Long getSizeUser() {
+        return userService.getSize();
+    }
     @PostMapping()
     User createUser(@RequestBody UserCreationRequest creationRequest) {
         return userService.createUser(creationRequest);
