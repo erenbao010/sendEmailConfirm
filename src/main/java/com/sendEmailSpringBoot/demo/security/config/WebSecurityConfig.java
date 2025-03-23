@@ -29,7 +29,7 @@ public class WebSecurityConfig {
                     .authorizeHttpRequests((authorizationManagerRequestMatcherRegistry)
                                     -> {
                                 authorizationManagerRequestMatcherRegistry
-                                        .requestMatchers("users/**")
+                                        .requestMatchers("users/**", "identity/**")
                                         .permitAll();
                             }
                     );
