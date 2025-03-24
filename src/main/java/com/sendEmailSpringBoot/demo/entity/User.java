@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -13,7 +15,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private int age;
+    private Date age;
     private String password;
 
     public String getPassword() {
@@ -24,7 +26,7 @@ public class User {
         this.password = password;
     }
 
-    public User(int id, String name, int age) {
+    public User(int id, String name, Date age) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -46,11 +48,11 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
+    public Date getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Date age) {
         this.age = age;
     }
 }

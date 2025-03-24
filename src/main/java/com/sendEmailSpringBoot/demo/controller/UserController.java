@@ -5,12 +5,16 @@ import com.sendEmailSpringBoot.demo.entity.User;
 import com.sendEmailSpringBoot.demo.request.UserCreationRequest;
 import com.sendEmailSpringBoot.demo.service.UserService;
 import jakarta.annotation.PostConstruct;
+import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,9 +34,9 @@ public class UserController {
         return userService.createUser(creationRequest);
     }
 
-    @GetMapping("/{userId}")
-    User getUser(@PathVariable("userId") long userId) {
-        return userService.getUser(userId);
+    @GetMapping("/{Id}")
+    User getUser(@PathVariable("userId") long Id) {
+        return userService.getUser(Id);
     }
 
     @GetMapping
@@ -44,9 +48,15 @@ public class UserController {
     Long getSizeUser() {
         return userService.getSize();
     }
+
     @PostMapping()
-    User createUser(@RequestBody UserCreationRequest creationRequest) {
+    User createUser(@RequestBody @Valid UserCreationRequest creationRequest) {
         return userService.createUser(creationRequest);
+    }
+
+    @GetMapping("/name/{name}")
+    public User findByName (@PathVariable String name) {
+        return userService.findByname(name);
     }
 
     @PutMapping("/{id}")

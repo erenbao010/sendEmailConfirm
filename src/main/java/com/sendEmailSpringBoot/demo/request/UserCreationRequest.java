@@ -1,9 +1,19 @@
 package com.sendEmailSpringBoot.demo.request;
 
+import com.sendEmailSpringBoot.demo.validator.AgeValidation;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
+
 public class UserCreationRequest {
     private int id;
+    @Size(min = 3, message = "Username must be at least 3 characters")
     private String name;
-    private int age;
+
+
+    @AgeValidation(min = 18, message = "Age must be at least 18 years old")
+    private String age;
+
+    @Size(min=8, message = "Password required must be at least 8 characters")
     private String password;
 
     public String getPassword() {
@@ -30,11 +40,11 @@ public class UserCreationRequest {
         this.name = name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 }
