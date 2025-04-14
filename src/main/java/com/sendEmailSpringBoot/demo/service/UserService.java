@@ -48,6 +48,10 @@ public class UserService {
     public User getUser(long userId) {
         return userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
     }
+
+    public User getUserByUsername(String username) {
+        return userRepository.findByName(username);
+    }
     public List<User> getAllUser () {
         return userRepository.findAll();
     }
